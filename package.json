@@ -1,0 +1,121 @@
+{
+  "name": "experimento-service",
+  "version": "1.0.0",
+  "description": "Experimento Service",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "dev": "ts-node -r tsconfig-paths/register ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/**/*.service.ts",
+    "start": "node -r tsconfig-paths/register ./node_modules/moleculer/bin/moleculer-runner.js dist/services  --config moleculer.config.js",
+    "cli": "moleculer connect ",
+    "ci": "jest --watch",
+    "test": "jest --clearCache && jest --coverage --detectOpenHandles",
+    "lint": "eslint --ext .js,.ts .",
+    "coverage": "jest --coverage --coverageReporters=cobertura --detectOpenHandles --reporters=default --reporters=jest-junit"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "Frederico Sampaio",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^13.9.8",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "axios-mock-adapter": "^1.20.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "jest-junit": "^13.0.0",
+    "moleculer-repl": "^0.6.2",
+    "prettier": "^2.2.1",
+    "supertest": "^6.0.1",
+    "testcontainers": "^7.19.1",
+    "ts-jest": "^25.3.0",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@cloudnative/health-connect": "^2.1.0",
+    "@types/connect": "^3.4.35",
+    "@types/mongodb": "^3.6.12",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jslint": "^0.12.1",
+    "moleculer": "^0.14.0",
+    "moleculer-db-adapter-mongo": "^0.4.10",
+    "moleculer-decorators": "^1.3.0",
+    "moleculer-web": "^0.9.0",
+    "tsconfig-paths": "^3.9.0",
+    "typeorm": "^0.2.29",
+    "yamljs": "^0.3.0"
+  },
+  "engines": {
+    "node": ">= 10.x.x"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "coverageDirectory": "<rootDir>/coverage",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "^@(Test)(.*)$": "<rootDir>/test/$2",
+      "@Utils/JsonMetaData": "<rootDir>/src/utils/JsonMetaData",
+      "@Utils/JsonMapUtils": "<rootDir>/src/utils/JsonMapUtils",
+      "@Utils/object-utils": "<rootDir>/src/utils/object-utils",
+      "@Interfaces/resources/data.resource": "<rootDir>/src/base-interfaces/resources/data.resource",
+      "@Interfaces/resources/experiment.resource": "<rootDir>/src/base-interfaces/resources/experiment.resource",
+      "@Interfaces/resources/eye-data.resource": "<rootDir>/src/base-interfaces/resources/eye-data.resource",
+      "@Interfaces/resources/eye-features.resource": "<rootDir>/src/base-interfaces/resources/eye-features.resource",
+      "@Interfaces/resources/people.resource": "<rootDir>/src/base-interfaces/resources/people.resource",
+      "@Interfaces/resources/questions.resource": "<rootDir>/src/base-interfaces/resources/questions.resource",
+      "@Interfaces/resources/webgazer.resource": "<rootDir>/src/base-interfaces/resources/webgazer.resource",
+      "@Interfaces/resources": "<rootDir>/src/base-interfaces/resources",
+      "@Entities/mongo/experiment": "<rootDir>/src/entities/mongo/experiment",
+      "@Entities/mongo/eye-data": "<rootDir>/src/entities/mongo/eye-data",
+      "@Entities/mongo/eye-features": "<rootDir>/src/entities/mongo/eye-features",
+      "@Entities/mongo/people": "<rootDir>/src/entities/mongo/people",
+      "@Entities/mongo/questions": "<rootDir>/src/entities/mongo/questions",
+      "@Entities/mongo/webgazer": "<rootDir>/src/entities/mongo/webgazer",
+      "@Entities/mongo/mongo.connection": "<rootDir>/src/entities/mongo/mongo.connection",
+      "@Entities/mongo": "<rootDir>/src/entities/mongo",
+      "@Errors/error.helper": "<rootDir>/src/errors/error.helper",
+      "@Repositories/mongo/experiment.repository": "<rootDir>/src/repositories/mongo/experiment.repository",
+      "@Repositories/mongo/shared.mongo": "<rootDir>/src/repositories/mongo/shared.mongo",
+      "@Shared/domain/connection-type": "<rootDir>/src/shared/domain/connection-type",
+      "@Transformers/experiment.transformer": "<rootDir>/services/transformers/experiment.transformer",
+      "^@([A-Z].*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.(ts|js)"
+    ],
+    "setupFilesAfterEnv": [
+      "./test/config/variables.setup.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.json"
+      }
+    },
+    "globalSetup": "<rootDir>/test/config/globalSetup.js",
+    "globalTeardown": "<rootDir>/test/config/globalTeardown.js"
+  },
+  "jest-junit": {
+    "suiteNameTemplate": "{filepath}",
+    "outputDirectory": ".",
+    "outputName": "junit.xml"
+  }
+}

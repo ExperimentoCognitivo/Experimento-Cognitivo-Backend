@@ -1,0 +1,80 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"strict": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"pretty": true,
+		"target": "es6",
+		"outDir": "dist",
+		"lib": [
+			"es6"
+		],
+		"types": [
+			"jest",
+			"node"
+		],
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"allowJs": true,
+		"baseUrl": ".",
+		"paths": {
+			"@Interfaces/*": [
+				"src/base-interfaces/*"
+			],
+			"@Interfaces": [
+				"src/base-interfaces"
+			],
+			"@Repositories/*": [
+				"src/repositories/*"
+			],
+			"@Repositories": [
+				"src/repositories"
+			],
+			"@Entities/*": [
+				"src/entities/*"
+			],
+			"@Entities": [
+				"src/entities"
+			],
+			"@Shared/*": [
+				"src/shared/*"
+			],
+			"@Shared": [
+				"src/shared"
+			],
+			"@Utils/*": [
+				"src/utils/*"
+			],
+			"@Utils": [
+				"src/test"
+			],
+			"@Errors/*": [
+				"src/errors/*"
+			],
+			"@Errors": [
+				"src/errors"
+			],
+			"@Transformers/*": [
+				"services/transformers/*"
+			],
+			"@Transformers": [
+				"services/transformers"
+			]
+		},
+	},
+	"exclude": [
+		"node_modules/**/*"
+	],
+	"include": [
+		"./src/**/*.ts",
+		"./services/**/*.ts",
+		"./test/**/*.ts"
+	]
+}
